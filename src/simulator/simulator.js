@@ -72,7 +72,7 @@ class Simulation {
                     type,
                     lat,
                     lng,
-                    speed
+                    speed: 0
                 })
             });
         } else if (this.offline.includes(idx)) {
