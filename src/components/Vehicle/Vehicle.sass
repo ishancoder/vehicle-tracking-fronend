@@ -1,0 +1,38 @@
+.vehicle
+    display: flex
+    color: white
+    text-align: center
+    width: 100%
+    max-width: 1000px
+    border-radius: 10px
+    margin: 10px 0
+    transition: all 500ms ease-in-out
+    padding: 10px
+
+    &.offline
+        background: #EEE !important
+        color: black !important
+
+    &.moving
+        background: green
+    &.standing
+        background: red
+
+    section
+        width: 25%
+
+        & .section-heading
+            font-weight: normal
+            margin-bottom: 0
+
+        & .section-content
+            margin-top: 0
+            font-size: 30px
+            font-weight: bold
+
+            &.small
+                font-size: initial
+                margin-bottom: 0
+
+
+    
