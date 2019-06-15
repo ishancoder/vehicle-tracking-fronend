@@ -1,13 +1,19 @@
+@import "../../variables";
+
 .vehicle
     display: flex
     color: white
+    justify-content: center
+    align-items: center
     text-align: center
     width: 100%
     max-width: 1000px
     border-radius: 10px
     margin: 10px 0
     transition: all 500ms ease-in-out
-    padding: 10px
+
+    @media only screen and (max-width: $mobile)
+        flex-wrap: wrap
 
     &.offline
         background: #EEE !important
@@ -19,7 +25,9 @@
         background: red
 
     section
-        width: 25%
+        width: 17%
+        min-width: 100px
+        padding: 5px
 
         & .section-heading
             font-weight: normal
@@ -30,9 +38,9 @@
             font-size: 30px
             font-weight: bold
 
-            &.small
-                font-size: initial
-                margin-bottom: 0
+        & .small
+            font-size: initial
+            margin-bottom: 0
 
 
     

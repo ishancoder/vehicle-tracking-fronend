@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCarSide, faTruck, faBiking, faBus } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import "./Vehicle.sass";
 
@@ -52,9 +54,28 @@ class Vehicle extends Component {
         clearTimeout(this.notMovingTimeout);
     }
 
+    getAppropriateIcon() {
+        const {type} = this.props.details;
+        switch(type) {
+            case "BIKE":
+                return <FontAwesomeIcon icon={faBiking}/>
+            case "TRUCK":
+                return <FontAwesomeIcon icon={faTruck} />
+            case "BUS":
+                return <FontAwesomeIcon icon={faBus} />
+            default:
+                return <FontAwesomeIcon icon={faCarSide} />
+        }
+    }
+
     render() {
         const { id, lat, lng, speed, lastUpdated } = this.props.details;
+        const momentObject = moment(lastUpdated);
         return <div className={`${this.state.moving ? 'moving' : 'standing'} ${this.state.offline ? 'offline' : ''} vehicle`}>
+            <section>
+                <h2 className='section-heading'>Type</h2>
+                <h2 className='section-content'>{this.getAppropriateIcon()}</h2>
+            </section>
             <section>
                 <h2 className='section-heading'>Unique Id</h2>
                 <h6 className='section-content small'>{id}</h6>
@@ -73,7 +94,7 @@ class Vehicle extends Component {
             </section>
             <section>
                 <h2 className='section-heading'>Last Updated</h2>
-                <h2 className='section-content'>{moment(lastUpdated).format('hh:mm:ss A')}</h2>           
+                <h2 className='section-content'>{momentObject.format("hh:mm:ss")} <span className='small'>{momentObject.format('A')}</span></h2>           
             </section>
         </div>;
     }

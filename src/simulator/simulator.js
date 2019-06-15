@@ -62,7 +62,7 @@ class Simulation {
     }
 
     async update(idx) {
-        const { id, speed, lat, lng, type } = this.vehicles[idx];
+        const { id, lat, lng, type } = this.vehicles[idx];
         if (this.stopped.includes(idx)) {
             return fetch(`${URL}/update/${id}`, {
                 method: "POST",
