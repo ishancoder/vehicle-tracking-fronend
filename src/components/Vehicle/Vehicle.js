@@ -78,7 +78,7 @@ class Vehicle extends Component {
             </section>
             <section>
                 <h2 className='section-heading'>Unique Id</h2>
-                <h6 className='section-content small'>{id}</h6>
+                <h6 className='section-content very-small'>{id}</h6>
             </section>
             <section>
                 <h2 className='section-heading'>Lat.</h2>
@@ -90,7 +90,7 @@ class Vehicle extends Component {
             </section>
             <section>
                 <h2 className='section-heading'>Speed</h2>
-                <h2 className='section-content'>{speed}</h2>
+                <h2 className='section-content'>{speed} <span className="small">Kmph</span></h2>
             </section>
             <section>
                 <h2 className='section-heading'>Last Updated</h2>

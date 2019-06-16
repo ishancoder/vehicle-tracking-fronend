@@ -127,11 +127,17 @@ class Simulation {
         }, 3000);
 
         // Make 2 vehicles offline & 3 not moving at random
-        setTimeout(() => {
-            this.makeOffline();
-            this.makeOffline();
-            this.stopMoving();
-            this.stopMoving();
+        const offlineAndStop = setInterval(() => {
+            if(this.vehicles.length > 5 && this.offline.length < 2) {
+                this.makeOffline();
+            }
+            if(this.vehicles.length > 5  && this.stopped.length < 2) {
+                this.stopMoving();
+            }
+
+            if(this.offline.length === 2 && this.stopped.length === 2) {
+                clearInterval(offlineAndStop);
+            }
         }, 1000);
     }
 }

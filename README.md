@@ -1,68 +1,40 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Vehicle Tracking DASHBOARD
 
-In the project directory, you can run:
+## Motivation
 
-### `npm start`
+This Project is made in order to complete a programming challenge. The motive for this is to create a web application which can show a company's vehicle data in real time on a DashBoard. This is the FRONTEND part of the application. You can find the companion backend for the DASBOARD [here](https://github.com/ishancoder/vehicle-tracking-backend).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Assumptions (FRONTEND)
+1. A vehicle can be in one of the three state **MOVING**, **STOPPED** and **OFFLINE**.
+2. A vehicle is considered moving if it's sending data to the backend in at most 10 seconds and it's Longitude and/or Latitude is changing.
+3. A vehicle is considered to be stopped in either of these two case.
+    1. If the vehicle is sending the data to the server in atmost 10 seconds but the Latitude and/or Longitude remains same.
+    2. If the vehicle has not sent any information to the server in an interval of 10-60 seconds.
+4. A vehicle is considered offline if it has not sent any information to the server for more that 60 seconds.
 
-### `npm test`
+## Visual Represntation
+1. You'll see one card for each vehicle registered with backend.
+2. The card will show the information like Type (With and Icon), Unique Identifier, Latitude (Lat.), Longitude (Long.), Speed and Last Updated Time (12 Hours Format).
+3. If the vehicle is **MOVING** the background of the card is going to be **GREEN** with **WHITE** text on it.
+4. If the vehicle is **STOPPED** the background of the card is going to be **RED** with **WHITE** text on it.
+5. If the vehicle is **OFFLINE** the background of the card is going to be **LIGHT GRAY** with **BLACK** text on it.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
+1. `React` since it really smart updating the UI so we don't have to deal with performance issues while updating the state with new changes.
+2. `SASS` Syntactically Awesome and makes CSS more readable and maintainable.
+3. `Socket.io` for getting data from WebSockets.
+3. `create-react-app` to Bootstrap the application.
 
-### `npm run build`
+## How to get this thing Running Locally.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these simple steps.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. `git clone` or download the repository.
+2. `cd` into the directory.
+3. Run `npm install` or `yarn` (if you're using it).
+4. Let the dependencies download.
+5. Run `npm start` or `yarn start`.
+6. A browser window will Automatically open but if it didn't visit [http://localhost:3000](http://localhost:3000). 
