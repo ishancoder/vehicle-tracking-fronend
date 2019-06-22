@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {vehicles: []};
-    this.socket = socket('https://real-time-vehicle-tracking.herokuapp.com/');
+    this.socket = socket('http://localhost:8000/');
   }
 
   componentDidMount() {

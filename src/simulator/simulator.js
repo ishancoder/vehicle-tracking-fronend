@@ -112,7 +112,7 @@ class Simulation {
     run() {
         // Adding 10 vehicles in interval of 4 seconds.
         const addVehicleInterval = setInterval(() => {
-            if (this.vehicles.length === 10) {
+            if (this.vehicles.length >= 10) {
                 clearInterval(addVehicleInterval);
                 return;
             }
